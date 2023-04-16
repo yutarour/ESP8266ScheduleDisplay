@@ -14,7 +14,7 @@
 #define TFT_DC D3
 #define TFT_LED D8
 const char *ssid = "<SSID HERE>";
-const char *password = "<WIFI PASS HERE>";
+const char *password = "<PASSWORD HERE>";
 
 ESP8266WebServer server(80);
 WiFiUDP ntpUDP;
@@ -389,8 +389,10 @@ void loop() {
 
     else {
       tft.print(toPrint);
+      for(int l =toPrint.length();l<26;l++){
+        tft.print(" ")
+      }
     }
-
 
     tft.println();
   }
@@ -401,4 +403,5 @@ void loop() {
   }
   server.handleClient();
   MDNS.update();
+  //delay(1000);
 }
