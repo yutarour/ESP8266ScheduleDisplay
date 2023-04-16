@@ -304,7 +304,7 @@ void loop() {
   }
 
   // put your main code here, to run repeatedly:
-  if (millis() - ntpUpdateDelay > 1000) {
+  if (millis() - ntpUpdateDelay > 50000) {
     ntp.update();
     ntpUpdateDelay = millis();
   }
@@ -390,7 +390,7 @@ void loop() {
     else {
       tft.print(toPrint);
       for(int l =toPrint.length();l<26;l++){
-        tft.print(" ")
+        tft.print(" ");
       }
     }
 
